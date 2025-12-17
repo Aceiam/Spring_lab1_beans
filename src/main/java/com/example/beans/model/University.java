@@ -14,7 +14,6 @@ public class University {
     @Column(name = "title", nullable = false)
     private String title;
 
-    // Один університет має багато факультетів
     @OneToMany(mappedBy = "university", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
     private List<Faculty> faculties;
 
@@ -24,7 +23,6 @@ public class University {
         this.title = title;
     }
 
-    // Геттери та сеттери
     public Long getId() { return id; }
     public String getTitle() { return title; }
     public void setTitle(String title) { this.title = title; }

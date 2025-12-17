@@ -31,7 +31,6 @@ public class Faculty {
 
     public Faculty(String title, Dean dean) {
         this.title = title;
-        this.dean = dean;
     }
 
     // Геттери та сеттери
