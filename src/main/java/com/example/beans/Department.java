@@ -17,6 +17,10 @@ public class Department {
     public Department(Dean dean) {
         this.dean = dean;
     }
+
+    public String getName() {
+        return this.name;
+    }
     @PostConstruct
     public void init() {
         System.out.println("Department init: " + name + " " + code);
