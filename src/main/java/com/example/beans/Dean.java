@@ -1,21 +1,29 @@
 package com.example.beans;
 
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.stereotype.Component;
+
+import jakarta.annotation.PostConstruct;
+import jakarta.annotation.PreDestroy;
+
+@Component
 public class Dean {
+    @Value("${dean.name}")
     private String name;
+    @Value("${dean.email}")
     private String email;
 
-    public Dean() {}
-
-    public void setName(String name) {
-        this.name = name;
+    @PostConstruct
+    public void init() {
+        System.out.println("Dean init: " + name + " " + email);
     }
-
-    public void setEmail(String email) {
-        this.email = email;
+    @PreDestroy
+    public void destroy() {
+        System.out.println("Dean destroy: " + name);
     }
 
     @Override
     public String toString() {
-        return "Dean{name='" + name + "', email='" + email + "'}";
+        return "\nDean{name='" + name + "', email='" + email + "'}";
     }
 }

@@ -1,16 +1,21 @@
 package com.example.beans;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component
 public class Faculty {
-    private Dean dean;
+    private final Department department;
+    private final Dean dean;
 
-    public Faculty() {}
-
-    public void setDean(Dean dean) {
+    @Autowired
+    public Faculty(Department department, Dean dean) {
+        this.department = department;
         this.dean = dean;
     }
 
     @Override
     public String toString() {
-        return "Faculty{dean=" + dean + "}";
+        return "\nFaculty{" + dean + ", " + department + "}";
     }
 }
